@@ -12,12 +12,12 @@ const StyledLink = styled(NavLink)`
 export const Navigation = () => {
   return (
     <div>
-      <StyledLink to="/" end>
+      <StyledLink to="home" end>
         Home
       </StyledLink>
-      <StyledLink to="/register">Register</StyledLink>
-      <StyledLink to="/login">Login</StyledLink>
-      <StyledLink to="/contacts">Contacts</StyledLink>
+      <StyledLink to="register">Register</StyledLink>
+      <StyledLink to="login">Login</StyledLink>
+      {/* <StyledLink to="/contacts">Contacts</StyledLink> */}
     </div>
   );
 };
