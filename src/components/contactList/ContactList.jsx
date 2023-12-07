@@ -21,7 +21,7 @@ export function ContactList() {
         {contacts.map(item => (
           <li className={styles.contact} key={item.id}>
             <p>
-              {item.name}: {item.phone}
+              {item.name}: {item.number}
             </p>
             <button
               type="button"
@@ -44,7 +44,7 @@ export function ContactList() {
   contacts.forEach(contact => {
     if (contact.name.toLowerCase().includes(filter.toLowerCase())) {
       dispName = contact.name;
-      dispNumber = contact.phone;
+      dispNumber = contact.number;
       id = contact.id;
     }
   });

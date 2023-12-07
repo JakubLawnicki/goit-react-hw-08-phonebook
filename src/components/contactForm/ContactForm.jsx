@@ -7,17 +7,17 @@ import { selectContacts } from 'redux/selectors';
 export function ContactForm() {
   const contacts = useSelector(selectContacts);
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
   const dispatch = useDispatch();
 
   const newContact = {
     name,
-    phone,
+    number,
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    const { name, phone } = newContact;
+    const { name, number } = newContact;
     const form = e.target;
     for (const contact of contacts) {
       if (contact.name.toLowerCase() === name.toLowerCase()) {
@@ -25,7 +25,7 @@ export function ContactForm() {
       }
     }
 
-    dispatch(addContact({ name, phone }));
+    dispatch(addContact({ name, number }));
     form.reset();
   };
 
@@ -53,12 +53,12 @@ export function ContactForm() {
       <input
         className={styles['input-tel']}
         onChange={e => {
-          setPhone(e.target.value);
+          setNumber(e.target.value);
         }}
         type="tel"
-        name="phone"
-        id="phone"
-        value={phone}
+        name="number"
+        id="number"
+        value={number}
         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
