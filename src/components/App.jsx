@@ -4,6 +4,8 @@ import { Register } from './register/Register';
 import { Login } from './login/Login';
 import { Contacts } from './contacts/Contacts';
 import { Layout } from './layout/Layout';
+import { PrivateRoute } from './routes/PrivateRoute';
+import { ProtectedRoute } from './routes/ProtectedRoute';
 
 export function App() {
   return (
@@ -22,11 +24,24 @@ export function App() {
     >
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="home" element={<Home />}></Route>
-          <Route path="register" element={<Register />}></Route>
-          <Route path="login" element={<Login />}></Route>
+          <Route index element={<Home />}></Route>
+          <Route
+            path="register"
+            element={
+              <ProtectedRoute element={<Register />} redirect={'/contacts'} />
+            }
+          ></Route>
+          <Route
+            path="login"
+            element={
+              <ProtectedRoute element={<Login />} redirect={'/contacts'} />
+            }
+          ></Route>
         </Route>
-        <Route path="/contacts" element={<Contacts />}></Route>
+        <Route
+          path="/contacts"
+          element={<PrivateRoute element={<Contacts />} redirect={'/login'} />}
+        ></Route>
         <Route path="*" element={<Home />}></Route>
       </Routes>
     </div>

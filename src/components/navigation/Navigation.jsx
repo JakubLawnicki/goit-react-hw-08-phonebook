@@ -27,7 +27,7 @@ export const Navigation = () => {
 
   return (
     <div>
-      <StyledLink to="home">Home</StyledLink>
+      <StyledLink to="/">Home</StyledLink>
       {isLoggedIn ? <AuthNav /> : <UnauthNav />}
     </div>
   );
