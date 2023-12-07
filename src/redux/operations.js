@@ -54,3 +54,15 @@ export const createUser = createAsyncThunk(
     }
   }
 );
+
+export const loginUser = createAsyncThunk(
+  'auth/loginUser',
+  async ({ email, password }, thunkAPI) => {
+    try {
+      const response = await axios.post('/users/login', { email, password });
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
