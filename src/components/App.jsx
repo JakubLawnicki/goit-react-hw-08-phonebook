@@ -6,9 +6,22 @@ import { Contacts } from './contacts/Contacts';
 import { Layout } from './layout/Layout';
 import { PrivateRoute } from './routes/PrivateRoute';
 import { ProtectedRoute } from './routes/ProtectedRoute';
+import { useEffect } from 'react';
+import { refreshUser } from 'redux/operations';
+import { useDispatch } from 'react-redux';
+import { useAuth } from 'hooks/useAuth';
 
 export function App() {
-  return (
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  return isRefreshing ? (
+    <p>Refreshing user...</p>
+  ) : (
     <div
       style={{
         height: '100vh',
