@@ -24,25 +24,25 @@ export function App() {
     >
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home />}></Route>
+          <Route index element={<Home />} />
           <Route
             path="register"
             element={
               <ProtectedRoute element={<Register />} redirect={'/contacts'} />
             }
-          ></Route>
+          />
           <Route
             path="login"
             element={
               <ProtectedRoute element={<Login />} redirect={'/contacts'} />
             }
-          ></Route>
+          />
         </Route>
         <Route
           path="/contacts"
           element={<PrivateRoute element={<Contacts />} redirect={'/login'} />}
-        ></Route>
-        <Route path="*" element={<Home />}></Route>
+        />
+        <Route path="*" element={<Home />} />
       </Routes>
     </div>
   );
