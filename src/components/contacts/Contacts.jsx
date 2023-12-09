@@ -3,13 +3,11 @@ import { ContactList } from 'components/contactList/ContactList';
 import { Filter } from 'components/filter/Filter';
 import { UserMenu } from 'components/userMenu/UserMenu';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchContacts } from 'redux/operations';
-import { selectError, selectIsLoading } from 'redux/selectors';
+import styles from './contacts.module.css';
 
 export const Contacts = () => {
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,12 +15,15 @@ export const Contacts = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className={styles['primary-wrapper']}>
       <UserMenu />
-      <ContactForm />
-      <Filter />
-      {isLoading && !error && <p>Loading...</p>}
-      <ContactList />
+      <div className={styles['secondary-wrapper']}>
+        <div className={styles['tertiary-wrapper']}>
+          <ContactForm />
+          <Filter />
+        </div>
+        <ContactList />
+      </div>
     </div>
   );
 };

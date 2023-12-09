@@ -2,6 +2,7 @@
   color: white;
   background-color: #1c8000;
   height: 40px;
+  width: 100px;
   border: 1px solid black;
   border-radius: 2px;
 }
@@ -15,9 +16,37 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid gray;
+  margin-bottom: 20px;
 }
 .contact-list {
+  margin-top: 20px;
   list-style: none;
+  padding-inline-start: 0;
   gap: 20px;
-  width: 500px;
+}
+.contact-text {
+  font-size: 16px;
+  color: gray;
+  margin-right: 15px;
+}
+.contact-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.contact-wrapper p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.list-header {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 28px;
+}
+.list-wrapper {
+  width: 70%;
+  border: 1px solid black;
+  margin-top: 0;
+  height: 100%;
+  padding: 20px;
 }

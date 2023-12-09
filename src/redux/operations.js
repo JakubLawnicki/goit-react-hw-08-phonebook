@@ -10,7 +10,11 @@ const setAuthHeader = token => {
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchContacts',
   async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+
     try {
+      setAuthHeader(persistedToken);
       const response = await axios.get('/contacts');
       return response.data;
     } catch (error) {
@@ -22,7 +26,11 @@ export const fetchContacts = createAsyncThunk(
 export const addContact = createAsyncThunk(
   'contacts/addContacts',
   async ({ name, number }, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+
     try {
+      setAuthHeader(persistedToken);
       const response = await axios.post('/contacts', { name, number });
       return response.data;
     } catch (error) {
@@ -34,7 +42,11 @@ export const addContact = createAsyncThunk(
 export const deleteContact = createAsyncThunk(
   'contacts/deleteContacts',
   async (contactId, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+
     try {
+      setAuthHeader(persistedToken);
       const response = await axios.delete(`/contacts/${contactId}`);
       return response.data;
     } catch (error) {

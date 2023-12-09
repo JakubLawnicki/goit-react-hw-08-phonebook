@@ -10,8 +10,8 @@ export function Filter() {
   };
 
   return (
-    <div>
-      <p className={styles['filter-text']}>Find contacts by name</p>
+    <div className={styles['filter-wrapper']}>
+      <p className={styles['filter-text']}>Find contact by name</p>
       <input
         type="text"
         className={styles.input}
