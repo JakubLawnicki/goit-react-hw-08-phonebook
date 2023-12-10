@@ -18,7 +18,7 @@ export function ContactForm() {
   const handleSubmit = e => {
     e.preventDefault();
     const { name, number } = newContact;
-    const form = e.target;
+
     for (const contact of contacts) {
       if (contact.name.toLowerCase() === name.toLowerCase()) {
         return alert(contact.name + ' is already in contacts.');
@@ -26,7 +26,8 @@ export function ContactForm() {
     }
 
     dispatch(addContact({ name, number }));
-    form.reset();
+    setName('');
+    setNumber('');
   };
 
   return (

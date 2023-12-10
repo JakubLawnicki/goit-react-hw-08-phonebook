@@ -14,11 +14,15 @@
 }
 
 .container {
+  position: fixed;
+  right: 40px;
+  left: 40px;
   display: flex;
   justify-content: space-between;
   padding: 10px 20px;
   background-color: green;
   margin-bottom: 40px;
+  z-index: 999;
 }
 
 .usermail {

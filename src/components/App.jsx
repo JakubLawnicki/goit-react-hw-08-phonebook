@@ -31,7 +31,6 @@ export function App() {
         alignItems: 'start',
         fontSize: 40,
         color: '#010101',
-        // margin: 40,
         paddingLeft: 40,
         paddingRight: 40,
       }}
